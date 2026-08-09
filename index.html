@@ -11,6 +11,7 @@
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
   <style type="text/tailwindcss">
+    @import "tailwindcss";
     @theme {
       --font-outfit: 'Outfit', sans-serif;
       --font-mono: 'JetBrains Mono', monospace;
@@ -101,19 +102,19 @@
   </style>
 </head>
 
-<body class="min-h-screen flex flex-col relative">
+<body id="top" class="min-h-screen flex flex-col relative">
 
   <!-- ═══ Header ═══ -->
   <header class="fixed top-0 left-0 right-0 z-50 border-bottom-subtle">
     <div class="max-w-[1400px] mx-auto px-6 lg:px-10">
       <div class="flex items-center justify-between h-[72px]">
-        <a href="/" class="flex items-center gap-3 group">
+        <a href="#top" class="flex items-center gap-3 group">
           <span class="font-mono font-bold text-lg text-white border border-white/30 w-10 h-10 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-300">YC</span>
           <span class="hidden sm:block font-semibold tracking-tight text-white">Yasser Casim</span>
         </a>
 
         <nav class="hidden lg:flex items-center gap-8 text-[13px] font-medium text-neutral-400">
-          <a href="#" class="text-white">Home</a>
+          <a href="#top" class="text-white hover:text-white transition-colors">Home</a>
           <a href="#about" class="hover:text-white transition-colors">About</a>
           <a href="#skills" class="hover:text-white transition-colors">Skills</a>
           <a href="#projects" class="hover:text-white transition-colors">Projects</a>
@@ -121,7 +122,7 @@
 
         <div class="flex items-center gap-3">
           <a href="#contact" class="hidden sm:block text-[13px] font-semibold bg-white text-black px-5 py-2.5 hover:bg-transparent hover:text-white border border-white transition-all duration-300">Contact</a>
-          <button id="menuBtn" class="lg:hidden w-10 h-10 border-subtle flex items-center justify-center text-white hover:bg-white hover:text-black transition-all cursor-pointer">
+          <button id="menuBtn" aria-label="Toggle navigation menu" class="lg:hidden w-10 h-10 border-subtle flex items-center justify-center text-white hover:bg-white hover:text-black transition-all cursor-pointer">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/></svg>
           </button>
         </div>
@@ -129,7 +130,7 @@
 
       <!-- Mobile Nav -->
       <nav id="mobileNav" class="hidden lg:hidden flex-col gap-1 pb-6 pt-2 border-bottom-subtle">
-        <a href="#" class="block px-4 py-2.5 text-sm text-white font-semibold">Home</a>
+        <a href="#top" class="block px-4 py-2.5 text-sm text-white font-semibold">Home</a>
         <a href="#about" class="block px-4 py-2.5 text-sm text-neutral-400 hover:text-white hover:bg-white/5 transition-all">About</a>
         <a href="#skills" class="block px-4 py-2.5 text-sm text-neutral-400 hover:text-white hover:bg-white/5 transition-all">Skills</a>
         <a href="#projects" class="block px-4 py-2.5 text-sm text-neutral-400 hover:text-white hover:bg-white/5 transition-all">Projects</a>
@@ -178,7 +179,6 @@
           <div class="relative reveal-scale d2">
             <div class="relative aspect-[3/4] max-w-[480px] mx-auto lg:ml-auto overflow-hidden">
               <img src="assets/images/profile.png" alt="Yasser Casim" class="w-full h-full object-cover">
-              <!-- Overlay Label -->
             </div>
           </div>
         </div>
@@ -230,12 +230,12 @@
 
     <!-- ═══ STATS COUNTER STRIP ═══ -->
     <section class="border-bottom-subtle">
-      <div class="max-w-[1400px] mx-auto" style="display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(255,255,255,.1);">
-        <div class="p-8 lg:p-12 text-center reveal" style="border-right:1px solid rgba(255,255,255,.1);">
+      <div class="max-w-[1400px] mx-auto grid grid-cols-1 sm:grid-cols-3 border-t border-white/10">
+        <div class="p-8 lg:p-12 text-center reveal border-b sm:border-b-0 sm:border-r border-white/10">
           <span class="counter-num">3rd</span>
           <p class="mt-2 text-[10px] font-mono uppercase tracking-[.2em] text-neutral-500">Year BS-IT</p>
         </div>
-        <div class="p-8 lg:p-12 text-center reveal d1" style="border-right:1px solid rgba(255,255,255,.1);">
+        <div class="p-8 lg:p-12 text-center reveal d1 border-b sm:border-b-0 sm:border-r border-white/10">
           <span class="counter-num">10+</span>
           <p class="mt-2 text-[10px] font-mono uppercase tracking-[.2em] text-neutral-500">Projects</p>
         </div>
@@ -262,50 +262,95 @@
         <!-- Right Grid -->
         <div class="lg:col-span-8">
           <div class="grid grid-cols-2 sm:grid-cols-3 gap-[1px] bg-white/10">
-            <div class="bg-[#050505] p-8 group mag reveal">
-              <span class="text-3xl font-black tracking-tighter text-white/80 group-hover:text-white transition-colors">01</span>
-              <p class="text-sm font-bold mt-3 text-white">HTML5</p>
-              <p class="text-[11px] text-neutral-500 mt-1 font-mono">MARKUP</p>
+            <div class="bg-[#050505] p-8 group mag reveal flex flex-col justify-between min-h-[160px]">
+              <div class="flex items-center justify-between">
+                <span class="text-3xl font-black tracking-tighter text-white/80 group-hover:text-white transition-colors">01</span>
+                <img src="assets/icons/html5.svg" alt="HTML5 Icon" class="w-7 h-7 opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all">
+              </div>
+              <div>
+                <p class="text-sm font-bold mt-4 text-white">HTML5</p>
+                <p class="text-[11px] text-neutral-500 mt-1 font-mono">MARKUP</p>
+              </div>
             </div>
-            <div class="bg-[#050505] p-8 group mag reveal d1">
-              <span class="text-3xl font-black tracking-tighter text-white/80 group-hover:text-white transition-colors">02</span>
-              <p class="text-sm font-bold mt-3 text-white">CSS3</p>
-              <p class="text-[11px] text-neutral-500 mt-1 font-mono">STYLING</p>
+            <div class="bg-[#050505] p-8 group mag reveal d1 flex flex-col justify-between min-h-[160px]">
+              <div class="flex items-center justify-between">
+                <span class="text-3xl font-black tracking-tighter text-white/80 group-hover:text-white transition-colors">02</span>
+                <img src="assets/icons/css.svg" alt="CSS3 Icon" class="w-7 h-7 opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all">
+              </div>
+              <div>
+                <p class="text-sm font-bold mt-4 text-white">CSS3</p>
+                <p class="text-[11px] text-neutral-500 mt-1 font-mono">STYLING</p>
+              </div>
             </div>
-            <div class="bg-[#050505] p-8 group mag reveal d2">
-              <span class="text-3xl font-black tracking-tighter text-white/80 group-hover:text-white transition-colors">03</span>
-              <p class="text-sm font-bold mt-3 text-white">JavaScript</p>
-              <p class="text-[11px] text-neutral-500 mt-1 font-mono">LOGIC</p>
+            <div class="bg-[#050505] p-8 group mag reveal d2 flex flex-col justify-between min-h-[160px]">
+              <div class="flex items-center justify-between">
+                <span class="text-3xl font-black tracking-tighter text-white/80 group-hover:text-white transition-colors">03</span>
+                <img src="assets/icons/javascript.svg" alt="JavaScript Icon" class="w-7 h-7 opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all">
+              </div>
+              <div>
+                <p class="text-sm font-bold mt-4 text-white">JavaScript</p>
+                <p class="text-[11px] text-neutral-500 mt-1 font-mono">LOGIC</p>
+              </div>
             </div>
-            <div class="bg-[#050505] p-8 group mag reveal">
-              <span class="text-3xl font-black tracking-tighter text-white/80 group-hover:text-white transition-colors">04</span>
-              <p class="text-sm font-bold mt-3 text-white">React.js</p>
-              <p class="text-[11px] text-neutral-500 mt-1 font-mono">FRONTEND</p>
+            <div class="bg-[#050505] p-8 group mag reveal flex flex-col justify-between min-h-[160px]">
+              <div class="flex items-center justify-between">
+                <span class="text-3xl font-black tracking-tighter text-white/80 group-hover:text-white transition-colors">04</span>
+                <img src="assets/icons/react_dark.svg" alt="React.js Icon" class="w-7 h-7 opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all">
+              </div>
+              <div>
+                <p class="text-sm font-bold mt-4 text-white">React.js</p>
+                <p class="text-[11px] text-neutral-500 mt-1 font-mono">FRONTEND</p>
+              </div>
             </div>
-            <div class="bg-[#050505] p-8 group mag reveal d1">
-              <span class="text-3xl font-black tracking-tighter text-white/80 group-hover:text-white transition-colors">05</span>
-              <p class="text-sm font-bold mt-3 text-white">PHP</p>
-              <p class="text-[11px] text-neutral-500 mt-1 font-mono">BACKEND</p>
+            <div class="bg-[#050505] p-8 group mag reveal d1 flex flex-col justify-between min-h-[160px]">
+              <div class="flex items-center justify-between">
+                <span class="text-3xl font-black tracking-tighter text-white/80 group-hover:text-white transition-colors">05</span>
+                <img src="assets/icons/php_dark.svg" alt="PHP Icon" class="w-7 h-7 opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all">
+              </div>
+              <div>
+                <p class="text-sm font-bold mt-4 text-white">PHP</p>
+                <p class="text-[11px] text-neutral-500 mt-1 font-mono">BACKEND</p>
+              </div>
             </div>
-            <div class="bg-[#050505] p-8 group mag reveal d2">
-              <span class="text-3xl font-black tracking-tighter text-white/80 group-hover:text-white transition-colors">06</span>
-              <p class="text-sm font-bold mt-3 text-white">MySQL</p>
-              <p class="text-[11px] text-neutral-500 mt-1 font-mono">DATABASE</p>
+            <div class="bg-[#050505] p-8 group mag reveal d2 flex flex-col justify-between min-h-[160px]">
+              <div class="flex items-center justify-between">
+                <span class="text-3xl font-black tracking-tighter text-white/80 group-hover:text-white transition-colors">06</span>
+                <img src="assets/icons/mysql-icon-dark.svg" alt="MySQL Icon" class="w-7 h-7 opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all">
+              </div>
+              <div>
+                <p class="text-sm font-bold mt-4 text-white">MySQL</p>
+                <p class="text-[11px] text-neutral-500 mt-1 font-mono">DATABASE</p>
+              </div>
             </div>
-            <div class="bg-[#050505] p-8 group mag reveal">
-              <span class="text-3xl font-black tracking-tighter text-white/80 group-hover:text-white transition-colors">07</span>
-              <p class="text-sm font-bold mt-3 text-white">Tailwind</p>
-              <p class="text-[11px] text-neutral-500 mt-1 font-mono">UTILITY CSS</p>
+            <div class="bg-[#050505] p-8 group mag reveal flex flex-col justify-between min-h-[160px]">
+              <div class="flex items-center justify-between">
+                <span class="text-3xl font-black tracking-tighter text-white/80 group-hover:text-white transition-colors">07</span>
+                <img src="assets/icons/tailwindcss.svg" alt="Tailwind CSS Icon" class="w-7 h-7 opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all">
+              </div>
+              <div>
+                <p class="text-sm font-bold mt-4 text-white">Tailwind</p>
+                <p class="text-[11px] text-neutral-500 mt-1 font-mono">UTILITY CSS</p>
+              </div>
             </div>
-            <div class="bg-[#050505] p-8 group mag reveal d1">
-              <span class="text-3xl font-black tracking-tighter text-white/80 group-hover:text-white transition-colors">08</span>
-              <p class="text-sm font-bold mt-3 text-white">Git</p>
-              <p class="text-[11px] text-neutral-500 mt-1 font-mono">VERSION CTRL</p>
+            <div class="bg-[#050505] p-8 group mag reveal d1 flex flex-col justify-between min-h-[160px]">
+              <div class="flex items-center justify-between">
+                <span class="text-3xl font-black tracking-tighter text-white/80 group-hover:text-white transition-colors">08</span>
+                <img src="assets/icons/git.svg" alt="Git Icon" class="w-7 h-7 opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all">
+              </div>
+              <div>
+                <p class="text-sm font-bold mt-4 text-white">Git</p>
+                <p class="text-[11px] text-neutral-500 mt-1 font-mono">VERSION CTRL</p>
+              </div>
             </div>
-            <div class="bg-[#050505] p-8 group mag reveal d2">
-              <span class="text-3xl font-black tracking-tighter text-white/80 group-hover:text-white transition-colors">09</span>
-              <p class="text-sm font-bold mt-3 text-white">Figma</p>
-              <p class="text-[11px] text-neutral-500 mt-1 font-mono">DESIGN</p>
+            <div class="bg-[#050505] p-8 group mag reveal d2 flex flex-col justify-between min-h-[160px]">
+              <div class="flex items-center justify-between">
+                <span class="text-3xl font-black tracking-tighter text-white/80 group-hover:text-white transition-colors">09</span>
+                <img src="assets/icons/figma.svg" alt="Figma Icon" class="w-7 h-7 opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all">
+              </div>
+              <div>
+                <p class="text-sm font-bold mt-4 text-white">Figma</p>
+                <p class="text-[11px] text-neutral-500 mt-1 font-mono">DESIGN</p>
+              </div>
             </div>
           </div>
         </div>
@@ -365,7 +410,6 @@
           </div>
         </div>
 
-
       </div>
     </section>
 
@@ -381,8 +425,8 @@
         <div class="grid grid-cols-1 lg:grid-cols-1 gap-[1px] bg-white/10 reveal-scale d2">
           <div class="bg-[#050505] p-10 lg:p-14 flex flex-col items-center justify-center text-center">
             <h3 class="text-[10px] font-mono uppercase tracking-[.2em] text-neutral-500 mb-8">Wakatime Coding Hours</h3>
-            <a href="https://wakatime.com/@c1d2f93e-d295-42dd-aff2-c934d76f77f7" target="_blank" class="hover:opacity-100 transition-opacity">
-              <img src="https://wakatime.com/badge/user/c1d2f93e-d295-42dd-aff2-c934d76f77f7.svg" alt="Wakatime Hours" class="h-10 opacity-70 grayscale">
+            <a href="https://wakatime.com/@c1d2f93e-d295-42dd-aff2-c934d76f77f7" target="_blank" rel="noopener noreferrer" class="hover:opacity-100 transition-opacity">
+              <img src="https://wakatime.com/badge/user/c1d2f93e-d295-42dd-aff2-c934d76f77f7.svg" alt="Wakatime Hours" loading="lazy" class="h-10 opacity-70 grayscale">
             </a>
           </div>
         </div>
@@ -403,7 +447,7 @@
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-[1px] bg-white/10 max-w-2xl mx-auto reveal-scale d3">
-          <a href="https://www.facebook.com/yasser.angkay.casim" target="_blank" class="bg-[#050505] p-10 text-center group mag">
+          <a href="https://www.facebook.com/yasser.angkay.casim" target="_blank" rel="noopener noreferrer" class="bg-[#050505] p-10 text-center group mag">
             <p class="text-lg font-black tracking-tight text-white mb-1">Facebook</p>
             <p class="text-[10px] font-mono text-neutral-500 tracking-widest">@yasser.casim</p>
             <div class="w-6 h-[1px] bg-white/0 group-hover:bg-white mx-auto mt-4 transition-all duration-500"></div>
@@ -451,15 +495,42 @@
       });
     }
 
-    // Copy to Clipboard feature for data-copy elements
+    // Copy to Clipboard feature with robust fallback
+    function copyText(text, callback) {
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(callback).catch(function() {
+          fallbackCopy(text, callback);
+        });
+      } else {
+        fallbackCopy(text, callback);
+      }
+    }
+
+    function fallbackCopy(text, callback) {
+      var textArea = document.createElement("textarea");
+      textArea.value = text;
+      textArea.style.position = "fixed";
+      textArea.style.opacity = "0";
+      document.body.appendChild(textArea);
+      textArea.focus();
+      textArea.select();
+      try {
+        document.execCommand('copy');
+        if (callback) callback();
+      } catch (err) {
+        console.error('Fallback copy failed', err);
+      }
+      document.body.removeChild(textArea);
+    }
+
     var copyBtn = document.querySelector('[data-copy]');
     if (copyBtn) {
       copyBtn.addEventListener('click', function() {
         var textToCopy = this.getAttribute('data-copy');
-        if (navigator.clipboard && textToCopy) {
+        if (textToCopy) {
           var labelEl = this.querySelector('.font-mono');
           var originalText = labelEl ? labelEl.textContent : '';
-          navigator.clipboard.writeText(textToCopy).then(function() {
+          copyText(textToCopy, function() {
             if (labelEl) {
               labelEl.textContent = 'Copied to clipboard!';
               setTimeout(function() {

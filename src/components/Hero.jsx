@@ -45,7 +45,7 @@ export default function Hero() {
           {/* Right: Profile Image */}
           <div className="relative reveal-scale d2">
             <div className="relative aspect-[3/4] max-w-[480px] mx-auto lg:ml-auto overflow-hidden">
-              <img src="assets/images/profile.png" alt="Yasser Casim" className="w-full h-full object-cover" />
+              <img src="/assets/images/profile.png" alt="Yasser Casim" className="w-full h-full object-cover" />
             </div>
           </div>
         </div>

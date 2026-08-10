@@ -20,7 +20,7 @@ export default function Metrics() {
           <div className="bg-[#050505] p-10 lg:p-14 flex flex-col items-center justify-center text-center">
             <h3 className="text-[10px] font-mono uppercase tracking-[.2em] text-neutral-500 mb-4">Version Control</h3>
             <a href="https://github.com/KaideN0703" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 border border-white/20 px-6 py-3 hover:bg-white hover:text-black transition-all">
-              <img src="assets/icons/github_dark.svg" alt="GitHub" className="w-5 h-5 opacity-80" />
+              <img src="/assets/icons/github_dark.svg" alt="GitHub" className="w-5 h-5 opacity-80" />
               <span className="font-mono text-xs font-bold uppercase tracking-widest">GitHub @KaideN0703</span>
             </a>
           </div>

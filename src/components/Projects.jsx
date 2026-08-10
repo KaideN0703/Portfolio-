@@ -13,7 +13,7 @@ export default function Projects() {
         {/* Project 1: HRIS — Full Width */}
         <a href="https://github.com/KaideN0703" target="_blank" rel="noopener noreferrer" className="block group mb-20 reveal-scale">
           <div className="block relative overflow-hidden aspect-[16/7]">
-            <img src="assets/images/HRIS.png" alt="HRIS System" className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-[1.2s]" />
+            <img src="/assets/images/HRIS.png" alt="HRIS System" className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-[1.2s]" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
             <div className="absolute bottom-0 left-0 right-0 p-8 lg:p-12 flex justify-between items-end">
               <div>
@@ -36,7 +36,7 @@ export default function Projects() {
         {/* Project 2: POS — Full Width */}
         <a href="https://github.com/KaideN0703" target="_blank" rel="noopener noreferrer" className="block group reveal-scale d2">
           <div className="block relative overflow-hidden aspect-[16/7]">
-            <img src="assets/images/POS.png" alt="POS System" className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-[1.2s]" />
+            <img src="/assets/images/POS.png" alt="POS System" className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-[1.2s]" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
             <div className="absolute bottom-0 left-0 right-0 p-8 lg:p-12 flex justify-between items-end">
               <div>

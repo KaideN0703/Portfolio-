@@ -1,18 +1,18 @@
 import React from 'react';
 
 const CAPABILITIES = [
-  { id: '01', title: 'HTML5', category: 'MARKUP', icon: 'assets/icons/html5.svg', delay: '' },
-  { id: '02', title: 'CSS3', category: 'STYLING', icon: 'assets/icons/css.svg', delay: 'd1' },
-  { id: '03', title: 'JavaScript', category: 'LOGIC', icon: 'assets/icons/javascript.svg', delay: 'd2' },
-  { id: '04', title: 'TypeScript', category: 'TYPED JS', icon: 'assets/icons/typescript.svg', delay: '' },
-  { id: '05', title: 'React.js', category: 'FRONTEND', icon: 'assets/icons/react_dark.svg', delay: 'd1' },
-  { id: '06', title: 'PHP', category: 'BACKEND', icon: 'assets/icons/php_dark.svg', delay: 'd2' },
-  { id: '07', title: 'Laravel', category: 'FRAMEWORK', icon: 'assets/icons/laravel.svg', delay: '' },
-  { id: '08', title: 'MySQL', category: 'DATABASE', icon: 'assets/icons/mysql-icon-dark.svg', delay: 'd1' },
-  { id: '09', title: 'Tailwind', category: 'UTILITY CSS', icon: 'assets/icons/tailwindcss.svg', delay: 'd2' },
-  { id: '10', title: 'Git', category: 'VERSION CTRL', icon: 'assets/icons/git.svg', delay: '' },
-  { id: '11', title: 'VS Code', category: 'ENVIRONMENT', icon: 'assets/icons/vscode.svg', delay: 'd1' },
-  { id: '12', title: 'Figma', category: 'DESIGN', icon: 'assets/icons/figma.svg', delay: 'd2' },
+  { id: '01', title: 'HTML5', category: 'MARKUP', icon: '/assets/icons/html5.svg', delay: '' },
+  { id: '02', title: 'CSS3', category: 'STYLING', icon: '/assets/icons/css.svg', delay: 'd1' },
+  { id: '03', title: 'JavaScript', category: 'LOGIC', icon: '/assets/icons/javascript.svg', delay: 'd2' },
+  { id: '04', title: 'TypeScript', category: 'TYPED JS', icon: '/assets/icons/typescript.svg', delay: '' },
+  { id: '05', title: 'React.js', category: 'FRONTEND', icon: '/assets/icons/react_dark.svg', delay: 'd1' },
+  { id: '06', title: 'PHP', category: 'BACKEND', icon: '/assets/icons/php_dark.svg', delay: 'd2' },
+  { id: '07', title: 'Laravel', category: 'FRAMEWORK', icon: '/assets/icons/laravel.svg', delay: '' },
+  { id: '08', title: 'MySQL', category: 'DATABASE', icon: '/assets/icons/mysql-icon-dark.svg', delay: 'd1' },
+  { id: '09', title: 'Tailwind', category: 'UTILITY CSS', icon: '/assets/icons/tailwindcss.svg', delay: 'd2' },
+  { id: '10', title: 'Git', category: 'VERSION CTRL', icon: '/assets/icons/git.svg', delay: '' },
+  { id: '11', title: 'VS Code', category: 'ENVIRONMENT', icon: '/assets/icons/vscode.svg', delay: 'd1' },
+  { id: '12', title: 'Figma', category: 'DESIGN', icon: '/assets/icons/figma.svg', delay: 'd2' },
 ];
 
 export default function Capabilities() {

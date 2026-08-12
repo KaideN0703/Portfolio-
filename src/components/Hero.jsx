@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Hero() {
   return (
-    <section id="about" className="relative min-h-[90vh] flex items-center">
+    <section id="about" className="relative min-h-[90vh] flex items-center bg-gradient-to-br from-[var(--gradient-start)] to-[var(--gradient-end)]" data-aos="fade-up">
       {/* Giant Background Letter */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 select-none pointer-events-none z-0">
         <span className="text-[30vw] font-black text-white/[.02] leading-none tracking-tighter hero-bg-yc">YC</span>

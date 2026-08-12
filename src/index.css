@@ -1,10 +1,32 @@
 @import "tailwindcss";
+@import "aos/dist/aos.css"; /* AOS animations */
 
 @theme {
   --font-outfit: 'Outfit', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
   --color-black: #050505;
   --color-white: #fafafa;
+  /* Soft teal gradient colors */
+  --gradient-start: hsl(170, 60%, 50%);
+  --gradient-end: hsl(190, 60%, 70%);
+}
+
+/* Dark mode color overrides */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-black: #fafafa;
+    --color-white: #050505;
+    --gradient-start: hsl(170, 30%, 20%);
+    --gradient-end: hsl(190, 30%, 30%);
+  }
+}
+
+/* Manual dark mode class (overrides) */
+.dark {
+  --color-black: #fafafa;
+  --color-white: #050505;
+  --gradient-start: hsl(170, 30%, 20%);
+  --gradient-end: hsl(190, 30%, 30%);
 }
 
 body {

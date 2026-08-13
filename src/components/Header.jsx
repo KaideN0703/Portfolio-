@@ -45,6 +45,26 @@ export default function Header() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7" />
               </svg>
             </button>
+            <button
+              id="darkModeBtn"
+              onClick={() => {
+                const html = document.documentElement;
+                if (html.classList.contains('dark')) {
+                  html.classList.remove('dark');
+                  localStorage.setItem('theme', 'light');
+                } else {
+                  html.classList.add('dark');
+                  localStorage.setItem('theme', 'dark');
+                }
+              }}
+              aria-label="Toggle dark mode"
+              className="w-10 h-10 flex items-center justify-center rounded-full border border-white/30 text-white hover:bg-white hover:text-black transition-colors"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 3v1m0 16v1m8.66-13.66l-.71.71M5.05 18.95l-.71.71M21 12h-1M4 12H3m15.66 5.66l-.71-.71M5.05 5.05l-.71-.71" />
+                <circle cx="12" cy="12" r="5" stroke="currentColor" strokeWidth="2" fill="none" />
+              </svg>
+            </button>
           </div>
         </div>
 
@@ -64,4 +84,15 @@ export default function Header() {
       </div>
     </header>
   );
+}
+
+if (typeof window !== 'undefined') {
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'dark') {
+    document.documentElement.classList.add('dark');
+  } else if (savedTheme === 'light') {
+    document.documentElement.classList.remove('dark');
+  } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    document.documentElement.classList.add('dark');
+  }
 }

@@ -6,33 +6,37 @@
   --font-mono: 'JetBrains Mono', monospace;
   --color-black: #050505;
   --color-white: #fafafa;
-  /* Soft teal gradient colors */
-  --gradient-start: hsl(170, 60%, 50%);
-  --gradient-end: hsl(190, 60%, 70%);
 }
 
-/* Dark mode color overrides */
+/* ── CSS custom properties (runtime, available everywhere) ── */
+:root {
+  --gradient-start: hsl(170, 60%, 50%);
+  --gradient-end:   hsl(190, 60%, 70%);
+  --teal-accent:    hsl(175, 60%, 55%);
+  --bg-base:        #050505;
+  --text-base:      #fafafa;
+}
+
+/* System dark mode preference */
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-black: #fafafa;
-    --color-white: #050505;
-    --gradient-start: hsl(170, 30%, 20%);
-    --gradient-end: hsl(190, 30%, 30%);
+    --gradient-start: hsl(170, 35%, 22%);
+    --gradient-end:   hsl(190, 35%, 30%);
+    --teal-accent:    hsl(175, 50%, 45%);
   }
 }
 
-/* Manual dark mode class (overrides) */
-.dark {
-  --color-black: #fafafa;
-  --color-white: #050505;
-  --gradient-start: hsl(170, 30%, 20%);
-  --gradient-end: hsl(190, 30%, 30%);
+/* Manual dark mode toggle (html.dark class) */
+html.dark {
+  --gradient-start: hsl(170, 35%, 22%);
+  --gradient-end:   hsl(190, 35%, 30%);
+  --teal-accent:    hsl(175, 50%, 45%);
 }
 
 body {
   font-family: 'Outfit', sans-serif;
-  background-color: #050505;
-  color: #fafafa;
+  background-color: var(--bg-base);
+  color: var(--text-base);
   overflow-x: hidden;
 }
 
@@ -64,7 +68,7 @@ body {
   top: 0;
   left: 0;
   height: 2px;
-  background: linear-gradient(90deg, #fafafa, rgba(255,255,255,0.4));
+  background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
   z-index: 100;
   width: 0%;
   transition: width 0.1s cubic-bezier(0.16, 1, 0.3, 1);
@@ -163,8 +167,52 @@ header {
   -webkit-backdrop-filter: blur(14px);
 }
 nav a.nav-active {
-  color: #ffffff !important;
+  color: var(--teal-accent) !important;
   font-weight: 700;
+}
+
+/* ── Hero Section Gradient Background ──── */
+.hero-gradient {
+  background: linear-gradient(
+    135deg,
+    #050505 0%,
+    hsl(170, 25%, 8%) 40%,
+    hsl(190, 20%, 10%) 70%,
+    #050505 100%
+  );
+  position: relative;
+}
+.hero-gradient::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 60% 50% at 70% 50%,
+    hsl(170, 50%, 35%, 0.18) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Teal Glow Utility ───────────────────── */
+.teal-glow {
+  box-shadow: 0 0 32px -8px hsl(170, 60%, 50%, 0.35);
+}
+
+/* ── Animated Gradient Text ─────────────── */
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.text-gradient {
+  background: linear-gradient(135deg, var(--gradient-end), var(--teal-accent), var(--gradient-start));
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 4s ease infinite;
 }
 
 /* ── Counter Number ──────────────────────── */
